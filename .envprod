@@ -1,0 +1,26 @@
+# ----------------------------------------------------
+# Danone DataStream Configuration (.envprod)
+# ----------------------------------------------------
+
+# --- SALESFORCE CREDENTIALS (Bulk API Access) ---
+CONSUMER_KEY="<YOUR_SALESFORCE_CONSUMER_KEY>"
+CONSUMER_SECRET="<YOUR_SALESFORCE_CONSUMER_SECRET>"
+# NOTE: The auth URL is currently hardcoded in the Python script to the UAT sandbox.
+
+# --- SNOWFLAKE CREDENTIALS ---
+# Authentication: Use 'externalbrowser' for SSO, 'password' for standard, 'keypair' for certificate
+SNOWFLAKE_AUTHENTICATOR="externalbrowser"
+SNOWFLAKE_USER="<YOUR_SNOWFLAKE_USER>"
+# SNOWFLAKE_PASSWORD="<YOUR_SNOWFLAKE_PASSWORD>" # Uncomment if using 'password' authenticator
+
+# --- SNOWFLAKE CONNECTION DETAILS ---
+SNOWFLAKE_ACCOUNT="<YOUR_SNOWFLAKE_ACCOUNT_IDENTIFIER>" # e.g., 'xyz12345.eu-central-1'
+SNOWFLAKE_WAREHOUSE="<YOUR_SNOWFLAKE_WAREHOUSE>"   # e.g., 'ETL_WH'
+SNOWFLAKE_DATABASE="<YOUR_SNOWFLAKE_DATABASE>"     # e.g., 'RAW_DB'
+SNOWFLAKE_SCHEMA="<YOUR_SNOWFLAKE_SCHEMA>"         # e.g., 'SALESFORCE'
+SNOWFLAKE_ROLE="<YOUR_SNOWFLAKE_ROLE>"             # e.g., 'SYSADMIN'
+
+# --- SNOWFLAKE OBJECT NAMES (Customization) ---
+SF_STAGE_NAME="ACCOUNT_STAGE"            # Internal stage for file uploads
+SF_FILE_FORMAT="ACCOUNT_PARQUET_FF"      # File format definition for Parquet
+SF_TARGET_TABLE="ACCOUNT_SALESFORCE"     # Final destination table
